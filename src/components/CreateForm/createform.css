@@ -1,0 +1,60 @@
+.create-form-parent{
+    min-height: calc(100vh - 40px);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+
+}
+.identifications,.adress{
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+.identifications h3, .adress h3{
+    color:#f27a1a;
+    margin-bottom: 15px;
+    padding-left: 3px;
+}
+.create-form{
+    border:0.7px solid rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: color;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+    background-color:  #f9fafb;
+}
+.creat-form-title{
+    color: #f27a1a;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group-first{
+    display:grid;
+    /* repeat 2colonnes et 1fraction de largeur côte à côte */
+    grid-template-columns: repeat(2,1fr);
+    gap:60px;
+    margin-bottom: 20px;
+}
+.form-group-first div label{
+    display: flex;
+    flex-direction: column;
+}
+.form-group-first div label{
+    font-size: 0.8rem;
+    font-weight: bold; 
+    padding-left: 3px;   
+}
+.form-group-first div input, .form-group-first div select{
+    height: 30px;
+    margin-top: 7px;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: none;
+}
+.form-group-first div input:focus{
+    border: 2px solid #f27a1a;   
+}
