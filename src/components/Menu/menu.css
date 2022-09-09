@@ -27,5 +27,6 @@
 .menu-item:hover{
     font-weight: bold;
     font-size: 1rem;
+    filter: brightness(2);
 
 }
