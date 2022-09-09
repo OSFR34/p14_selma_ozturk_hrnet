@@ -4,7 +4,8 @@ import './footer.css'
 export default function Footer() {
   return (
     <div className='footer'>
-      
-    </div>
+    HRnet  - { new Date(Date.now()).getFullYear() }
+  </div>
+
   )
 }
