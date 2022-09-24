@@ -7,7 +7,8 @@ import EmployeeTable from '../EmployeeTable/EmployeeTable'
 
 
 export default function EmployeeListPage() {
-
+//fr:changement du titre de l'onglet du navigateur
+//en: browser tab title change
   useEffect (() => {
     document.title = 'Employee List | HRnet'
   })
