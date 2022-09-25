@@ -192,7 +192,7 @@ export default function CreateForm() {
                 {stateError ? <ErrorMessage /> : null}
               </label>
               <select id="state-selectbox">
-                <option selected>Select your state...</option>
+                <option>Select your state...</option>
                 {states
                   ? states.map((state, index) => {
                       return (
@@ -219,7 +219,7 @@ export default function CreateForm() {
                 {depError ? <ErrorMessage /> : null}
               </label>
               <select id="department-selectbox">
-                <option selected>Select your department...</option>
+                <option>Select your department...</option>
                 <option value="Sales">Sales</option>
                 <option value="Marketing">Marketing</option>
                 <option value="Engineering">Engineering</option>
@@ -237,10 +237,10 @@ export default function CreateForm() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-save"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-save"
               >
                 <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
                 <polyline points="17 21 17 13 7 13 7 21"></polyline>
