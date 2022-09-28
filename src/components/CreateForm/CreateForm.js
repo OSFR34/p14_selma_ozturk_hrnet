@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./createform.css";
 import states from "../../states.json";
 import Modal from "react-modaler-ext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { GlobalContext } from "../../context/GlobalContext";
 
 export default function CreateForm() {
   const [modalShowState, setModalState] = useState(false);
@@ -16,12 +17,12 @@ export default function CreateForm() {
   const [stateError, setStateError] = useState(false);
   const [depError, setDepError] = useState(false);
 
-  const toggleModal = () => {
-    setModalState(!modalShowState);
-  };
+  //en:Retrieving constants from the CONTEXT API
+  //fr: Récupération de constantes depuis l'API CONTEXT
+  const { users, changeUser } = useContext(GlobalContext);
+
 
   const submitForm = (e) => {
-    //formu submit etmeeden önce kontrollerin yapılması için formu bekletir.
     e.preventDefault();
     let vFirstName = document.querySelector("#firstname-input").value;
     let vLastname = document.querySelector("#lastname-input").value;
@@ -94,18 +95,17 @@ export default function CreateForm() {
       document.querySelector("#state-selectbox").style.border = "1px solid red";
     } else {
       setStateError(false);
-      document.querySelector("#state-selectbox").style.border =
-        "1px solid rgba(0,0,0,0.2)";
+      document.querySelector("#state-selectbox").style.border = "1px solid rgba(0,0,0,0.2)";
     }
     if (vDepartment === "Select your department...") {
       setDepError(true);
-      document.querySelector("#department-selectbox").style.border =
-        "1px solid red";
+      document.querySelector("#department-selectbox").style.border = "1px solid red";
     } else {
       setDepError(false);
-      document.querySelector("#department-selectbox").style.border =
-        "1px solid rgba(0,0,0,0.2)";
+      document.querySelector("#department-selectbox").style.border = "1px solid rgba(0,0,0,0.2)";
     }
+    // en: if all the fields are not empty and the vState field is not "Select your state",...
+    //fr: si tous les champs ne sont pas vide et le champs vState n'est pas "Select your state",...
     if (
       vDepartment !== "Select your department..." &&
       vState !== "Select your state..." &&
@@ -117,8 +117,37 @@ export default function CreateForm() {
       vLastname !== "" &&
       vFirstName !== ""
     ) {
-      //submit işlemi başarılı
+      // en: Display the modal
+      //fr: Affiche le modale 
       setModalState(true);
+      //en:as soon as a new employee is created, it is contained in a temporary object
+      //fr:dès qu'un nouvel employé est créé, il est contenu dans un objet temporaire 
+      let newUser = {
+        firstname: vFirstName,
+        lastname: vLastname,
+        startdate: vStartDate,
+        department: vDepartment,
+        birthdate: vbirthDay,
+        street: vStreet,
+        city: vCity,
+        state: vState,
+        zip: vZipCode,
+      };
+      // en: Updating the list of employees by adding new employees
+      // fr: Actualisation de la liste des employés par l'ajout des nouveaux employés
+      changeUser(newUser);
+      // en : reset all inputs
+      // fr: réinitialisation de tous les champs 
+      document.querySelector("#firstname-input").value = "";
+      document.querySelector("#lastname-input").value = "";
+      document.querySelector("#birthdate-input").value = "";
+      document.querySelector("#startdate-input").value = "";
+      document.querySelector("#street-input").value = "";
+      document.querySelector("#city-input").value = "";
+      document.querySelector("#zip-input").value = "";
+      document.querySelector("#state-selectbox").value = "Select your state...";
+      document.querySelector("#department-selectbox").value =
+        "Select your department...";
     }
   };
 
@@ -131,6 +160,10 @@ export default function CreateForm() {
         });
     }
   });
+
+  useEffect(() => {
+    console.log(users);
+  }, []);
 
   return (
     <div className="create-form-parent">
@@ -219,7 +252,7 @@ export default function CreateForm() {
                 {depError ? <ErrorMessage /> : null}
               </label>
               <select id="department-selectbox">
-                <option>Select your department...</option>
+                <option defaultValue={'Select your department...'}>Select your department...</option>
                 <option value="Sales">Sales</option>
                 <option value="Marketing">Marketing</option>
                 <option value="Engineering">Engineering</option>
