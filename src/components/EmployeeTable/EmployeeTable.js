@@ -430,7 +430,7 @@ export default function EmployeeTable() {
           </tr>
           </thead>
           <tbody>
-            {!filteredUsers ? (
+            {!filteredUsers ? ( 
               filteredUsers.length === 0 ? (
                 <tr>
                   <td className="nodata-cell" colSpan={9}>
@@ -476,7 +476,7 @@ export default function EmployeeTable() {
         </table>
         <div className="preloader-parent">
               <img src={preloader} className="preloader" />
-            </div>
+        </div>
         <div className="table-footer">
           <div className="table-footer-content">
             <div>

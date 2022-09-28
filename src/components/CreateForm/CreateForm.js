@@ -201,7 +201,7 @@ export default function CreateForm() {
           </div>
         </div>
         <div className="address">
-          <h3>Information</h3>
+          <h3>Informations</h3>
           <div className="form-group-first">
             <div>
               <label className="street-label">

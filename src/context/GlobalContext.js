@@ -16,7 +16,7 @@ export const GlobalProvider = (props) => {
         setUserListState(userListState)
     }
     // en :returns array of list of employees filtered by user search or nothing
-    // fr: renvoie le tableau de la liste des employés filtrés selon la recherche utilisateur ou rien 
+    // fr: renvoie le tableau de la liste des employés filtrés selon la recherche utilisateur ou false. 
     const searchUser = (searchTerm) => {
         if(userListState.length > 1){
             const lower = searchTerm.toLowerCase()
@@ -36,8 +36,8 @@ export const GlobalProvider = (props) => {
        
      }
      return(
-        // en: sends a users object and the constants: changeUser and searchUser
-        // fr :envoie un objet users et les constantes : changeUser et searchUser
+        // en: I specify the props to send
+        // fr :je précise les props à envoyer
          <GlobalContext.Provider value={
             { 
                 users:userListState,
