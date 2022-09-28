@@ -1,3 +1,5 @@
+// ------------EN :COMPONENT EMPLOYEE CREATION FORM---------------------
+//-----------FR: COMPOSANT FORMULAIRE DE CREATION D'EMPLOYES-----------
 import React, { useContext, useEffect, useState } from "react";
 import "./createform.css";
 import states from "../../states.json";
@@ -5,6 +7,8 @@ import Modal from "react-modaler-ext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { GlobalContext } from "../../context/GlobalContext";
 
+// en : creation of the form
+// fr: Création du formulaire
 export default function CreateForm() {
   const [modalShowState, setModalState] = useState(false);
   const [firstnameError, setFirstNameError] = useState(false);
@@ -21,7 +25,8 @@ export default function CreateForm() {
   //fr: Récupération de constantes depuis l'API CONTEXT
   const { users, changeUser } = useContext(GlobalContext);
 
-
+// en: Form validation
+// fr: Validation du formulaire
   const submitForm = (e) => {
     e.preventDefault();
     let vFirstName = document.querySelector("#firstname-input").value;
