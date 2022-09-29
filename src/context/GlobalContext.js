@@ -32,8 +32,7 @@ export const GlobalProvider = (props) => {
                 return false
             }
             return filtered             
-       }       
-       
+       }           
      }
      return(
         // en: I specify the props to send

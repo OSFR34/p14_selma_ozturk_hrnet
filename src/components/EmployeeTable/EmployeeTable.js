@@ -1,3 +1,4 @@
+// ----------COMPONENT: EMPLOYEE LIST TABLE
 import React, { useContext, useEffect, useState } from "react";
 import "./employeetable.css";
 import preloader from "../../images/preloader.jpeg";
@@ -36,8 +37,8 @@ export default function EmployeeTable() {
     //en: searchTerm retrieves the value of the input by the user
     //fr:searchTerm  récupère la valeur de la saisi par l'utilisateur
     const searchTerm = e.target.value;
-    // en:setFilteredUsers returns the filtered array of employees based on the user's search
-    //fr:setFilteredUsers renvoie le tableau filtré des employés selon la recherche de l'utilisateur
+    // en:setFilteredUsers takes as parameter the search for employees according to the keys entered in the search field
+    //fr:setFilteredUsers prend pour paramètre la recherche des employés selon les touches saisies dans le champ de recherche
     setFilteredUsers(searchUser(searchTerm));
   };
 // ---------------------------------------------------
@@ -438,6 +439,7 @@ export default function EmployeeTable() {
                   </td>
                 </tr>
               ) : (
+                // renvoie le tableau des employés non filtré.
                 users.map((data, index) => {
                   return (
                     <tr key={index}>
@@ -455,6 +457,8 @@ export default function EmployeeTable() {
                 })
               )
             ) : (
+      // en:returns the filtered array of employees whose data matches the string in the search field.
+      // fr:renvoie le tableau filtré des employés dont les datas correspondent à la chaine de caractères dans le champ de recherche. 
               filteredUsers.map((data, index) => {
                 return (
                   <tr key={index}>

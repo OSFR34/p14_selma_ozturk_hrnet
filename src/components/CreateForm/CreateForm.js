@@ -1,5 +1,4 @@
-// ------------EN :COMPONENT EMPLOYEE CREATION FORM---------------------
-//-----------FR: COMPOSANT FORMULAIRE DE CREATION D'EMPLOYES-----------
+// ------------COMPONENT EMPLOYEE CREATION FORM---------------------
 import React, { useContext, useEffect, useState } from "react";
 import "./createform.css";
 import states from "../../states.json";
@@ -7,8 +6,7 @@ import Modal from "react-modaler-ext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { GlobalContext } from "../../context/GlobalContext";
 
-// en : creation of the form
-// fr: Création du formulaire
+// creation of the form
 export default function CreateForm() {
   const [modalShowState, setModalState] = useState(false);
   const [firstnameError, setFirstNameError] = useState(false);
